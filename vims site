@@ -1,0 +1,1451 @@
+:root{
+  --bg: #f5f0e8;
+  --paper: #fffaf2;
+  --ink: #0f0f10;
+  --muted: #5d564f;
+  --tan: #cbb59b;
+  --brown: #3a2a1f;
+  --gold: #b08d57;
+  --shadow: 0 18px 40px rgba(15,15,16,.12);
+  --radius: 20px;
+  --radius2: 14px;
+  --border: 1px solid rgba(15,15,16,.10);
+  --border2: 1px solid rgba(176,141,87,.35);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  color:var(--ink);
+  background:
+    radial-gradient(1200px 500px at 15% 10%, rgba(176,141,87,.10), transparent 55%),
+    radial-gradient(900px 420px at 90% 0%, rgba(58,42,31,.10), transparent 60%),
+    linear-gradient(180deg, var(--bg), #efe7dc);
+  letter-spacing: .2px;
+}
+
+a{color:inherit; text-decoration:none}
+.container{max-width:1120px; margin:0 auto; padding:0 20px}
+.hidden{display:none !important}
+
+.topbar{
+  position:sticky; top:0; z-index:50;
+  backdrop-filter: blur(10px);
+  background: rgba(245,240,232,.75);
+  border-bottom: var(--border);
+}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:14px; padding:14px 0;
+}
+.brand{
+  display:flex; align-items:center; gap:12px;
+  font-weight:700; letter-spacing: 1.5px;
+}
+.logo{
+  width:38px; height:38px; border-radius: 12px;
+  background:
+    radial-gradient(12px 12px at 30% 30%, rgba(255,255,255,.95), rgba(255,255,255,0) 60%),
+    linear-gradient(135deg, #1b1b1c, #3a2a1f 55%, #b08d57);
+  box-shadow: 0 10px 20px rgba(15,15,16,.14);
+  border: 1px solid rgba(255,255,255,.25);
+}
+.brand small{display:block; font-weight:600; color:var(--muted); letter-spacing:.4px}
+.brand strong{font-size:13px}
+
+.navlinks{display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+.navlinks a{
+  padding:10px 12px;
+  border-radius: 999px;
+  color:rgba(15,15,16,.84);
+}
+.navlinks a:hover{background: rgba(176,141,87,.12)}
+.navlinks a.active{background: rgba(15,15,16,.08); border: var(--border)}
+
+.chips{
+  display:flex; align-items:center; gap:10px;
+}
+.chip{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 12px;
+  border-radius:999px;
+  background: rgba(255,250,242,.7);
+  border: var(--border);
+  box-shadow: 0 10px 22px rgba(15,15,16,.06);
+  font-weight:600;
+}
+.badge{
+  min-width:20px; height:20px; padding:0 6px;
+  display:inline-flex; align-items:center; justify-content:center;
+  border-radius:999px;
+  background: rgba(176,141,87,.16);
+  border: var(--border2);
+  font-size:12px;
+}
+
+.hero{
+  padding:52px 0 26px;
+}
+.hero-grid{
+  display:grid; gap:22px;
+  grid-template-columns: 1.2fr .8fr;
+  align-items:stretch;
+}
+@media (max-width: 920px){
+  .hero-grid{grid-template-columns:1fr}
+}
+.card{
+  background: rgba(255,250,242,.72);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+.card.pad{padding:22px}
+.kicker{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:8px 12px;
+  border-radius:999px;
+  background: rgba(15,15,16,.06);
+  border: var(--border);
+  color: rgba(15,15,16,.85);
+  font-weight:700;
+  font-size:12px;
+}
+.kicker:before{
+  content:"";
+  width:10px; height:10px; border-radius:999px;
+  background: linear-gradient(180deg, var(--gold), #f0d7a1);
+  box-shadow: 0 0 0 6px rgba(176,141,87,.18);
+}
+
+h1{
+  margin:14px 0 10px;
+  font-size:44px;
+  line-height:1.05;
+  letter-spacing:-.8px;
+}
+@media (max-width:520px){ h1{font-size:36px} }
+
+.sub{
+  margin:0;
+  color: rgba(15,15,16,.75);
+  font-size:16px;
+  line-height:1.55;
+  max-width: 58ch;
+}
+.actions{
+  margin-top:18px;
+  display:flex; gap:12px; flex-wrap:wrap;
+}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:10px;
+  padding:12px 14px;
+  border-radius: 999px;
+  border: var(--border);
+  background: rgba(255,250,242,.85);
+  font-weight:700;
+  cursor:pointer;
+}
+.btn:hover{transform: translateY(-1px)}
+.btn.primary{
+  background: linear-gradient(135deg, #1b1b1c, #3a2a1f 55%, #b08d57);
+  color:#fff;
+  border: 1px solid rgba(255,255,255,.18);
+}
+.btn.ghost{
+  background: rgba(15,15,16,.06);
+}
+.btn.small{padding:10px 12px; font-size:14px}
+.btn.danger{background: rgba(150,20,20,.10); border: 1px solid rgba(150,20,20,.20)}
+
+.hero-visual{
+  position:relative;
+  min-height: 360px;
+  background:
+    radial-gradient(480px 260px at 65% 20%, rgba(176,141,87,.22), transparent 60%),
+    radial-gradient(420px 240px at 25% 70%, rgba(58,42,31,.18), transparent 60%),
+    linear-gradient(135deg, rgba(255,250,242,.9), rgba(255,250,242,.45));
+}
+.leo{
+  position:absolute; inset:-60px -60px auto auto;
+  width:280px; height:280px;
+  opacity:.18;
+  filter: blur(.2px);
+  background:
+    radial-gradient(circle at 25% 30%, rgba(15,15,16,.75) 0 10px, transparent 11px),
+    radial-gradient(circle at 55% 20%, rgba(15,15,16,.65) 0 11px, transparent 12px),
+    radial-gradient(circle at 70% 45%, rgba(15,15,16,.62) 0 9px, transparent 10px),
+    radial-gradient(circle at 35% 60%, rgba(15,15,16,.58) 0 10px, transparent 11px),
+    radial-gradient(circle at 62% 70%, rgba(15,15,16,.70) 0 12px, transparent 13px);
+  transform: rotate(18deg);
+  border-radius: 40px;
+}
+.mirror{
+  position:absolute; inset: 26px 24px 26px 24px;
+  border-radius: 26px;
+  border: 1px solid rgba(176,141,87,.35);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.35)),
+    radial-gradient(200px 120px at 35% 25%, rgba(176,141,87,.18), transparent 60%);
+  box-shadow: 0 30px 70px rgba(15,15,16,.18);
+  overflow:hidden;
+}
+.mirror:before{
+  content:"";
+  position:absolute; inset:16px;
+  border-radius: 20px;
+  border: 1px solid rgba(15,15,16,.10);
+  background: linear-gradient(135deg, rgba(15,15,16,.05), rgba(255,255,255,.0));
+}
+.ui{
+  position:absolute; inset:auto 24px 22px 24px;
+  display:grid; gap:10px;
+}
+.pillrow{display:flex; gap:10px; flex-wrap:wrap}
+.pill{
+  padding:10px 12px;
+  border-radius:999px;
+  background: rgba(255,250,242,.78);
+  border: var(--border);
+  font-weight:700;
+  font-size:12px;
+  display:inline-flex; gap:8px; align-items:center;
+}
+.pill b{color: var(--brown)}
+.pill .dot{
+  width:8px; height:8px; border-radius:999px;
+  background: linear-gradient(180deg, var(--gold), #f2d7a4);
+}
+.panel{
+  padding:14px;
+  border-radius: 18px;
+  background: rgba(255,250,242,.72);
+  border: var(--border);
+}
+.panel h3{margin:0 0 6px; font-size:14px}
+.panel p{margin:0; color: rgba(15,15,16,.74); font-size:13px; line-height:1.45}
+.panel .row{margin-top:10px; display:flex; gap:10px; flex-wrap:wrap}
+
+.section{padding: 22px 0 44px}
+.section h2{
+  margin:0 0 10px;
+  font-size:24px;
+  letter-spacing:-.2px;
+}
+.grid3{
+  display:grid; gap:14px;
+  grid-template-columns: repeat(3, 1fr);
+}
+@media(max-width:920px){.grid3{grid-template-columns:1fr}}
+.feature{
+  padding:18px;
+  border-radius: var(--radius2);
+  background: rgba(255,250,242,.68);
+  border: var(--border);
+}
+.feature h3{margin:10px 0 6px; font-size:16px}
+.feature p{margin:0; color: rgba(15,15,16,.72); line-height:1.55}
+.icon{
+  width:44px; height:44px; border-radius:14px;
+  background: rgba(15,15,16,.06);
+  border: var(--border);
+  display:flex; align-items:center; justify-content:center;
+  font-weight:900;
+}
+
+.toolbar{
+  display:flex; gap:10px; flex-wrap:wrap;
+  align-items:center; justify-content:space-between;
+  margin: 14px 0 16px;
+}
+.search{
+  flex:1;
+  min-width: 220px;
+  display:flex; gap:10px;
+}
+.input, select, textarea{
+  width:100%;
+  padding:12px 12px;
+  border-radius: 14px;
+  border: var(--border);
+  background: rgba(255,250,242,.85);
+  color: var(--ink);
+  outline:none;
+}
+textarea{min-height:120px; resize:vertical}
+label{font-weight:700; font-size:13px}
+.formgrid{
+  display:grid; gap:12px;
+  grid-template-columns: 1fr 1fr;
+}
+@media(max-width:760px){.formgrid{grid-template-columns:1fr}}
+.help{color: rgba(15,15,16,.65); font-size:12px; line-height:1.5}
+
+.products{
+  display:grid; gap:14px;
+  grid-template-columns: repeat(3, 1fr);
+}
+@media(max-width:980px){.products{grid-template-columns:1fr}}
+.product{
+  border-radius: var(--radius);
+  background: rgba(255,250,242,.72);
+  border: var(--border);
+  overflow:hidden;
+}
+.product .head{
+  padding:18px;
+  border-bottom: var(--border);
+  display:flex; justify-content:space-between; gap:10px;
+  align-items:flex-start;
+}
+.product .title{margin:0; font-size:16px}
+.product .meta{margin:6px 0 0; color: rgba(15,15,16,.68); font-size:13px; line-height:1.45}
+.tag{
+  font-size:12px; font-weight:800;
+  padding:8px 10px; border-radius:999px;
+  background: rgba(176,141,87,.14);
+  border: var(--border2);
+  white-space:nowrap;
+}
+.product .body{padding:18px}
+.kv{
+  display:grid; gap:10px;
+  grid-template-columns: 1fr 1fr;
+}
+.kv .box{
+  border-radius: 14px;
+  padding:12px;
+  background: rgba(15,15,16,.05);
+  border: var(--border);
+}
+.kv .box b{display:block; font-size:12px; color: rgba(15,15,16,.65)}
+.kv .box span{font-weight:800}
+.product .foot{
+  padding:16px 18px;
+  display:flex; gap:10px; flex-wrap:wrap;
+  border-top: var(--border);
+  align-items:center; justify-content:space-between;
+}
+.price{font-weight:900}
+.smallmuted{color: rgba(15,15,16,.65); font-size:12px}
+
+.table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  overflow:hidden;
+  border-radius: var(--radius);
+  border: var(--border);
+  background: rgba(255,250,242,.72);
+}
+.table th, .table td{
+  padding:12px 14px;
+  border-bottom: var(--border);
+  text-align:left;
+  font-size:14px;
+}
+.table th{background: rgba(15,15,16,.05); font-size:12px; text-transform:uppercase; letter-spacing:.9px}
+.table tr:last-child td{border-bottom:none}
+.table td .mini{font-size:12px; color: rgba(15,15,16,.65)}
+
+.footer{
+  padding: 30px 0 40px;
+  color: rgba(15,15,16,.70);
+}
+.footer .row{
+  display:flex; gap:14px; flex-wrap:wrap; align-items:center; justify-content:space-between;
+}
+.footer .fine{font-size:12px}
+.hr{height:1px; background: rgba(15,15,16,.10); margin: 16px 0}
+.notice{
+  padding:12px 14px;
+  border-radius: 14px;
+  border: var(--border);
+  background: rgba(15,15,16,.05);
+  color: rgba(15,15,16,.75);
+  font-size:13px;
+  line-height:1.5;
+}
+.toast{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 999;
+  max-width: 360px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: var(--border);
+  background: rgba(255,250,242,.92);
+  box-shadow: 0 22px 60px rgba(15,15,16,.18);
+  display:none;
+}
+.toast.show{display:block}
+.toast b{display:block; margin-bottom:2px}/* VIMS – faux site (démo) : panier + favoris + analyse peau (simulation)
+   Tout est stocké en localStorage, aucun paiement réel. */
+
+const STORAGE = {
+  cart: "vims_cart_v1",
+  favs: "vims_favs_v1"
+};
+
+const formatEUR = (n) =>
+  new Intl.NumberFormat("fr-FR", { style:"currency", currency:"EUR" }).format(n);
+
+function load(key, fallback){
+  try{
+    const raw = localStorage.getItem(key);
+    return raw ? JSON.parse(raw) : fallback;
+  }catch(e){ return fallback; }
+}
+function save(key, val){
+  localStorage.setItem(key, JSON.stringify(val));
+}
+
+function toast(title, msg){
+  let el = document.querySelector("#toast");
+  if(!el){
+    el = document.createElement("div");
+    el.id="toast";
+    el.className="toast";
+    document.body.appendChild(el);
+  }
+  el.innerHTML = `<b>${title}</b><div>${msg}</div>`;
+  el.classList.add("show");
+  clearTimeout(window.__toastT);
+  window.__toastT = setTimeout(()=> el.classList.remove("show"), 2200);
+}
+
+function updateBadges(){
+  const cart = load(STORAGE.cart, []);
+  const favs = load(STORAGE.favs, []);
+  const cartCount = cart.reduce((s,i)=> s + (i.qty||1), 0);
+
+  document.querySelectorAll("[data-cart-badge]").forEach(b=> b.textContent = cartCount);
+  document.querySelectorAll("[data-fav-badge]").forEach(b=> b.textContent = favs.length);
+}
+
+function addToCart(item){
+  const cart = load(STORAGE.cart, []);
+  const idx = cart.findIndex(x => x.id === item.id && JSON.stringify(x.options||{}) === JSON.stringify(item.options||{}));
+  if(idx >= 0){
+    cart[idx].qty = (cart[idx].qty || 1) + (item.qty || 1);
+  }else{
+    cart.push({ ...item, qty: item.qty || 1 });
+  }
+  save(STORAGE.cart, cart);
+  updateBadges();
+  toast("Ajouté au panier", `${item.name} • ${formatEUR(item.price)}`);
+}
+
+function removeFromCart(index){
+  const cart = load(STORAGE.cart, []);
+  cart.splice(index,1);
+  save(STORAGE.cart, cart);
+  updateBadges();
+}
+
+function setCartQty(index, qty){
+  const cart = load(STORAGE.cart, []);
+  cart[index].qty = Math.max(1, parseInt(qty||"1",10));
+  save(STORAGE.cart, cart);
+  updateBadges();
+}
+
+function toggleFav(product){
+  const favs = load(STORAGE.favs, []);
+  const i = favs.findIndex(x => x.id === product.id);
+  if(i >= 0){
+    favs.splice(i,1);
+    toast("Retiré des favoris", product.name);
+  }else{
+    favs.push(product);
+    toast("Ajouté aux favoris", product.name);
+  }
+  save(STORAGE.favs, favs);
+  updateBadges();
+}
+
+function isFav(id){
+  const favs = load(STORAGE.favs, []);
+  return favs.some(x => x.id === id);
+}
+
+function mountActiveNav(){
+  const path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+  document.querySelectorAll(".navlinks a").forEach(a=>{
+    const href = (a.getAttribute("href") || "").toLowerCase();
+    if(href === path) a.classList.add("active");
+  });
+}
+
+function mountCommon(){
+  updateBadges();
+  mountActiveNav();
+
+  // handlers data-add-cart / data-fav
+  document.addEventListener("click", (e)=>{
+    const addBtn = e.target.closest("[data-add-cart]");
+    if(addBtn){
+      const payload = JSON.parse(addBtn.getAttribute("data-add-cart"));
+      addToCart(payload);
+      return;
+    }
+    const favBtn = e.target.closest("[data-toggle-fav]");
+    if(favBtn){
+      const payload = JSON.parse(favBtn.getAttribute("data-toggle-fav"));
+      toggleFav(payload);
+      // update button state
+      favBtn.setAttribute("aria-pressed", isFav(payload.id) ? "true" : "false");
+      favBtn.innerHTML = isFav(payload.id) ? "♥ Favori" : "♡ Favori";
+      return;
+    }
+  });
+}
+
+function renderCart(){
+  const tbody = document.querySelector("#cartBody");
+  const totalEl = document.querySelector("#cartTotal");
+  const emptyEl = document.querySelector("#cartEmpty");
+  if(!tbody) return;
+
+  const cart = load(STORAGE.cart, []);
+  if(cart.length === 0){
+    emptyEl?.classList.remove("hidden");
+  }else{
+    emptyEl?.classList.add("hidden");
+  }
+
+  tbody.innerHTML = "";
+  let total = 0;
+
+  cart.forEach((item, idx)=>{
+    const line = item.price * (item.qty||1);
+    total += line;
+
+    const opt = item.options ? Object.entries(item.options).map(([k,v]) => `${k}: ${v}`).join(" • ") : "";
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>
+        <div style="font-weight:900">${item.name}</div>
+        <div class="mini">${opt || item.note || ""}</div>
+      </td>
+      <td>${formatEUR(item.price)}</td>
+      <td>
+        <input class="input" style="max-width:110px" type="number" min="1" value="${item.qty||1}" data-qty="${idx}">
+      </td>
+      <td style="font-weight:900">${formatEUR(line)}</td>
+      <td style="text-align:right">
+        <button class="btn small danger" data-remove="${idx}">Retirer</button>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  totalEl.textContent = formatEUR(total);
+
+  tbody.addEventListener("input", (e)=>{
+    const inp = e.target.closest("[data-qty]");
+    if(!inp) return;
+    const idx = parseInt(inp.getAttribute("data-qty"),10);
+    setCartQty(idx, inp.value);
+    renderCart();
+  });
+
+  tbody.addEventListener("click", (e)=>{
+    const btn = e.target.closest("[data-remove]");
+    if(!btn) return;
+    const idx = parseInt(btn.getAttribute("data-remove"),10);
+    removeFromCart(idx);
+    renderCart();
+    toast("Panier mis à jour", "Article retiré.");
+  });
+
+  document.querySelector("#checkoutBtn")?.addEventListener("click", ()=>{
+    toast("Démo", "Paiement désactivé (site maquette).");
+  });
+
+  document.querySelector("#clearCartBtn")?.addEventListener("click", ()=>{
+    save(STORAGE.cart, []);
+    updateBadges();
+    renderCart();
+    toast("Panier vidé", "Tout est supprimé (local).");
+  });
+}
+
+function renderFavs(){
+  const wrap = document.querySelector("#favWrap");
+  const emptyEl = document.querySelector("#favEmpty");
+  if(!wrap) return;
+
+  const favs = load(STORAGE.favs, []);
+  wrap.innerHTML = "";
+
+  if(favs.length === 0){
+    emptyEl?.classList.remove("hidden");
+    return;
+  }
+  emptyEl?.classList.add("hidden");
+
+  favs.forEach((p)=>{
+    const card = document.createElement("div");
+    card.className = "feature";
+    card.innerHTML = `
+      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:10px">
+        <div>
+          <div style="font-weight:900">${p.name}</div>
+          <div class="help">${p.desc || "Sélection VIMS."}</div>
+        </div>
+        <div class="tag">${p.tag || "VIMS"}</div>
+      </div>
+      <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+        <button class="btn small" data-add-cart='${JSON.stringify({id:p.id, name:p.name, price:p.price||0, type:"skincare"})}'>Ajouter au panier</button>
+        <button class="btn small ghost" data-toggle-fav='${JSON.stringify(p)}' aria-pressed="true">♥ Favori</button>
+      </div>
+    `;
+    wrap.appendChild(card);
+  });
+}
+
+function mountSkinAnalysis(){
+  const form = document.querySelector("#analysisForm");
+  const out = document.querySelector("#analysisOut");
+  if(!form || !out) return;
+
+  const products = {
+    cleanser: { id:"vims-cleanser", name:"VIMS Cleanser Velours", price:34, tag:"Nettoyant", desc:"Nettoyant doux, barrière respectée." },
+    serum:    { id:"vims-serum",    name:"VIMS Serum Lumière", price:62, tag:"Sérum", desc:"Éclat + hydratation ciblée." },
+    cream:    { id:"vims-cream",    name:"VIMS Crème Signature", price:58, tag:"Crème", desc:"Confort luxe, fini soyeux." },
+    spf:      { id:"vims-spf",      name:"VIMS SPF 50+ Cashmere", price:42, tag:"SPF", desc:"Protection invisible, non gras." },
+    night:    { id:"vims-night",    name:"VIMS Night Repair", price:74, tag:"Nuit", desc:"Récupération et texture." },
+  };
+
+  form.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    const fd = new FormData(form);
+
+    const skin = fd.get("skin");
+    const concern = fd.get("concern");
+    const sensitivity = fd.get("sensitivity");
+    const finish = fd.get("finish");
+
+    // logique simple (simulation)
+    const score = {
+      hydration: skin === "sèche" ? 82 : skin === "mixte" ? 62 : 48,
+      oil: skin === "grasse" ? 78 : skin === "mixte" ? 58 : 34,
+      barrier: sensitivity === "oui" ? 55 : 74
+    };
+
+    const routine = [];
+    routine.push(products.cleanser);
+
+    if(concern === "éclat" || concern === "taches") routine.push(products.serum);
+    if(concern === "rides") routine.push(products.night);
+    if(skin !== "grasse" || finish === "glow") routine.push(products.cream);
+    routine.push(products.spf);
+
+    // rendu
+    const chips = `
+      <div class="pillrow" style="margin:10px 0 14px">
+        <div class="pill"><span class="dot"></span> Hydratation <b>${score.hydration}%</b></div>
+        <div class="pill"><span class="dot"></span> Sébum <b>${score.oil}%</b></div>
+        <div class="pill"><span class="dot"></span> Barrière <b>${score.barrier}%</b></div>
+      </div>
+    `;
+
+    const list = routine.map(p => `
+      <div class="feature" style="padding:14px">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:10px">
+          <div>
+            <div style="font-weight:900">${p.name}</div>
+            <div class="help">${p.desc}</div>
+          </div>
+          <div class="tag">${p.tag}</div>
+        </div>
+        <div style="margin-top:10px; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap">
+          <div style="font-weight:900">${formatEUR(p.price)}</div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap">
+            <button class="btn small" data-add-cart='${JSON.stringify({id:p.id, name:p.name, price:p.price, type:"skincare", note:"Recommandé par VIMS SkinScan"})}'>Ajouter au panier</button>
+            <button class="btn small ghost" data-toggle-fav='${JSON.stringify(p)}' aria-pressed="${isFav(p.id) ? "true" : "false"}">${isFav(p.id) ? "♥ Favori" : "♡ Favori"}</button>
+          </div>
+        </div>
+      </div>
+    `).join("");
+
+    out.innerHTML = `
+      <div class="notice"><b>Résultat VIMS SkinScan (démo)</b><br>
+      Peau <b>${skin}</b> • Préoccupation <b>${concern}</b> • Sensibilité <b>${sensitivity}</b> • Fini <b>${finish}</b></div>
+      ${chips}
+      <h3 style="margin: 0 0 10px">Routine personnalisée (VIMS)</h3>
+      <div style="display:grid; gap:12px">${list}</div>
+    `;
+    toast("Analyse terminée", "Routine personnalisée générée.");
+    updateBadges();
+  });
+}
+
+document.addEventListener("DOMContentLoaded", ()=>{
+  mountCommon();
+  renderCart();
+  renderFavs();
+  mountSkinAnalysis();
+})
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VIMS — Miroir intelligent & skincare sur-mesure</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="VIMS Home">
+        <div class="logo"></div>
+        <div>
+          <strong>VIMS</strong>
+          <small>vims.shop • SkinScan Mirror</small>
+        </div>
+      </a>
+
+      <nav class="navlinks" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="produits.html">Produit</a>
+        <a href="prix.html">Prix</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="chips">
+        <a class="chip" href="favoris.html">Favoris <span class="badge" data-fav-badge>0</span></a>
+        <a class="chip" href="panier.html">Panier <span class="badge" data-cart-badge>0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="card pad">
+          <span class="kicker">Luxe • Épuré • Sur-mesure</span>
+          <h1>Le miroir qui lit votre peau, et élève votre routine.</h1>
+          <p class="sub">
+            <b>VIMS</b> analyse l’état de la peau (hydratation, texture, zones de brillance) et recommande une routine
+            parfaitement adaptée — avec nos soins disponibles directement sur <b>vims.shop</b>.
+            Design chic (bordures <b>dorées</b>, blanches ou argentées), taille au choix.
+          </p>
+
+          <div class="actions">
+            <a class="btn primary" href="produits.html">Découvrir le miroir</a>
+            <a class="btn" href="#analysis">Tester l’analyse (démo)</a>
+            <a class="btn ghost" href="prix.html">Voir les prix</a>
+          </div>
+
+          <div class="hr"></div>
+          <div class="notice">
+            <b>Démo</b> : ce site est une maquette. Les paniers/favoris sont enregistrés localement dans ton navigateur.
+          </div>
+        </div>
+
+        <div class="card hero-visual" aria-hidden="true">
+          <div class="leo"></div>
+          <div class="mirror"></div>
+          <div class="ui">
+            <div class="pillrow">
+              <div class="pill"><span class="dot"></span> Bordure <b>Dorée</b></div>
+              <div class="pill"><span class="dot"></span> Mode <b>SkinScan</b></div>
+              <div class="pill"><span class="dot"></span> Style <b>BCBG</b></div>
+            </div>
+            <div class="panel">
+              <h3>Lecture peau • Recommandations VIMS</h3>
+              <p>Analyse visuelle + routine personnalisée. Ajout en 1 clic au panier.</p>
+              <div class="row">
+                <span class="tag">Beige / Marron</span>
+                <span class="tag">Détails dorés</span>
+                <span class="tag">Touch léopard</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Pourquoi VIMS ?</h2>
+        <div class="grid3">
+          <div class="feature">
+            <div class="icon">✦</div>
+            <h3>Analyse instantanée</h3>
+            <p>Lecture des zones clés + synthèse claire, dans un univers luxe et discret.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">◈</div>
+            <h3>Routine VIMS intégrée</h3>
+            <p>Vos recommandations renvoient directement vers nos soins (disponibles sur le site).</p>
+          </div>
+          <div class="feature">
+            <div class="icon">⟡</div>
+            <h3>Sur-mesure design</h3>
+            <p>Bordures : blanc, doré, argenté • Tailles et formats sélectionnés.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="analysis">
+      <div class="container">
+        <h2>VIMS SkinScan (démo)</h2>
+        <div class="card pad">
+          <form id="analysisForm">
+            <div class="formgrid">
+              <div>
+                <label for="skin">Type de peau</label>
+                <select id="skin" name="skin" required>
+                  <option value="mixte">Mixte</option>
+                  <option value="sèche">Sèche</option>
+                  <option value="grasse">Grasse</option>
+                </select>
+                <div class="help">Simulation : sur le vrai produit, analyse caméra + capteurs.</div>
+              </div>
+              <div>
+                <label for="concern">Préoccupation principale</label>
+                <select id="concern" name="concern" required>
+                  <option value="éclat">Éclat</option>
+                  <option value="taches">Taches</option>
+                  <option value="rides">Rides</option>
+                </select>
+              </div>
+              <div>
+                <label for="sensitivity">Peau sensible ?</label>
+                <select id="sensitivity" name="sensitivity" required>
+                  <option value="non">Non</option>
+                  <option value="oui">Oui</option>
+                </select>
+              </div>
+              <div>
+                <label for="finish">Fini souhaité</label>
+                <select id="finish" name="finish" required>
+                  <option value="velours">Velours (mat chic)</option>
+                  <option value="glow">Glow (lumière)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="actions" style="margin-top:14px">
+              <button class="btn primary" type="submit">Lancer l’analyse</button>
+              <a class="btn" href="produits.html">Voir les miroirs</a>
+              <a class="btn ghost" href="panier.html">Aller au panier</a>
+            </div>
+          </form>
+
+          <div class="hr"></div>
+          <div id="analysisOut"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="hr"></div>
+      <div class="row">
+        <div>
+          <div style="font-weight:900; letter-spacing:1px">VIMS</div>
+          <div class="fine">Skincare luxe • Miroirs intelligents • vims.shop</div>
+        </div>
+        <div class="fine">© <span id="y"></span> VIMS — Maquette</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Produit — VIMS</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html"><div class="logo"></div><div><strong>VIMS</strong><small>vims.shop • SkinScan Mirror</small></div></a>
+      <nav class="navlinks">
+        <a href="index.html">Accueil</a>
+        <a href="produits.html">Produit</a>
+        <a href="prix.html">Prix</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="chips">
+        <a class="chip" href="favoris.html">Favoris <span class="badge" data-fav-badge>0</span></a>
+        <a class="chip" href="panier.html">Panier <span class="badge" data-cart-badge>0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h2>Miroirs VIMS</h2>
+      <div class="notice">Choisissez la <b>bordure</b> (blanc / doré / argenté), la <b>taille</b> et le <b>format</b>. Ajout au panier en 1 clic.</div>
+
+      <div class="toolbar">
+        <div class="search">
+          <input class="input" id="q" placeholder="Rechercher : miroir, doré, soin..." />
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap">
+          <select id="filterType">
+            <option value="all">Tout</option>
+            <option value="mirror">Miroirs</option>
+            <option value="skincare">Skincare</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="products" id="productGrid"></div>
+
+      <div class="hr"></div>
+      <h2>Les soins VIMS</h2>
+      <p class="sub">Recommandés automatiquement par SkinScan (démo sur l’accueil), et disponibles à l’achat ici.</p>
+      <div class="products" id="skincareGrid"></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="hr"></div>
+      <div class="row">
+        <div><div style="font-weight:900; letter-spacing:1px">VIMS</div><div class="fine">Skincare luxe • Miroirs intelligents</div></div>
+        <div class="fine">Maquette • Favoris & panier enregistrés localement</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+  <script>
+    const mirrors = [
+      {
+        id:"vims-mirror-oval",
+        name:"VIMS Mirror — Ovale Signature",
+        price: 1290,
+        type:"mirror",
+        tag:"Best-seller",
+        desc:"Analyse peau + recommandations. Ovale luxe, très Upper East Side."
+      },
+      {
+        id:"vims-mirror-arch",
+        name:"VIMS Mirror — Arche Dorée",
+        price: 1490,
+        type:"mirror",
+        tag:"Luxe",
+        desc:"Arche chic, présence sculpturale. UI minimaliste, détail doré."
+      },
+      {
+        id:"vims-mirror-rect",
+        name:"VIMS Mirror — Rectangle Épuré",
+        price: 1190,
+        type:"mirror",
+        tag:"Épuré",
+        desc:"Format salle de bain premium. Lecture peau et recommandations quotidiennes."
+      }
+    ];
+
+    const skincare = [
+      { id:"vims-cleanser", name:"VIMS Cleanser Velours", price:34, type:"skincare", tag:"Nettoyant", desc:"Doux, barrière respectée." },
+      { id:"vims-serum", name:"VIMS Serum Lumière", price:62, type:"skincare", tag:"Sérum", desc:"Éclat + hydratation ciblée." },
+      { id:"vims-cream", name:"VIMS Crème Signature", price:58, type:"skincare", tag:"Crème", desc:"Confort luxe, fini soyeux." },
+      { id:"vims-spf", name:"VIMS SPF 50+ Cashmere", price:42, type:"skincare", tag:"SPF", desc:"Protection invisible." },
+      { id:"vims-night", name:"VIMS Night Repair", price:74, type:"skincare", tag:"Nuit", desc:"Récupération et texture." }
+    ];
+
+    const borderOptions = ["Doré", "Blanc", "Argenté"];
+    const sizeOptions = ["S (50 cm)", "M (70 cm)", "L (90 cm)"];
+
+    function card(p){
+      const isMirror = p.type === "mirror";
+      const favPayload = { id:p.id, name:p.name, price:p.price, tag:p.tag, desc:p.desc };
+
+      const optionUI = isMirror ? `
+        <div class="kv">
+          <div class="box">
+            <b>Bordure</b>
+            <select class="input" data-opt-border>
+              ${borderOptions.map(x=>`<option>${x}</option>`).join("")}
+            </select>
+          </div>
+          <div class="box">
+            <b>Taille</b>
+            <select class="input" data-opt-size>
+              ${sizeOptions.map(x=>`<option>${x}</option>`).join("")}
+            </select>
+          </div>
+        </div>
+      ` : `
+        <div class="kv">
+          <div class="box"><b>Texture</b><span>Cashmere</span></div>
+          <div class="box"><b>Univers</b><span>Luxe épuré</span></div>
+        </div>
+      `;
+
+      return `
+        <article class="product" data-name="${p.name.toLowerCase()}" data-type="${p.type}">
+          <div class="head">
+            <div>
+              <h3 class="title">${p.name}</h3>
+              <p class="meta">${p.desc}</p>
+            </div>
+            <div class="tag">${p.tag}</div>
+          </div>
+          <div class="body">${optionUI}</div>
+          <div class="foot">
+            <div>
+              <div class="price">${formatEUR(p.price)}</div>
+              <div class="smallmuted">${isMirror ? "Inclut SkinScan + recommandations" : "Recommandé par VIMS"}</div>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center">
+              <button class="btn small ghost" data-toggle-fav='${JSON.stringify(favPayload)}' aria-pressed="${isFav(p.id) ? "true" : "false"}">${isFav(p.id) ? "♥ Favori" : "♡ Favori"}</button>
+              <button class="btn small primary" data-add-mirror="${p.id}">Ajouter</button>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    const grid = document.getElementById("productGrid");
+    const skinGrid = document.getElementById("skincareGrid");
+    grid.innerHTML = mirrors.map(card).join("");
+    skinGrid.innerHTML = skincare.map(p => `
+      <article class="product">
+        <div class="head">
+          <div>
+            <h3 class="title">${p.name}</h3>
+            <p class="meta">${p.desc}</p>
+          </div>
+          <div class="tag">${p.tag}</div>
+        </div>
+        <div class="body">
+          <div class="kv">
+            <div class="box"><b>Signature</b><span>VIMS</span></div>
+            <div class="box"><b>Finition</b><span>Luxe discret</span></div>
+          </div>
+        </div>
+        <div class="foot">
+          <div class="price">${formatEUR(p.price)}</div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center">
+            <button class="btn small ghost" data-toggle-fav='${JSON.stringify(p)}' aria-pressed="${isFav(p.id) ? "true" : "false"}">${isFav(p.id) ? "♥ Favori" : "♡ Favori"}</button>
+            <button class="btn small primary" data-add-cart='${JSON.stringify({id:p.id, name:p.name, price:p.price, type:"skincare"})}'>Ajouter</button>
+          </div>
+        </div>
+      </article>
+    `).join("");
+
+    document.addEventListener("click", (e)=>{
+      const b = e.target.closest("[data-add-mirror]");
+      if(!b) return;
+      const id = b.getAttribute("data-add-mirror");
+      const wrap = b.closest("article");
+      const p = mirrors.find(x=>x.id===id);
+      const border = wrap.querySelector("[data-opt-border]")?.value || "Doré";
+      const size = wrap.querySelector("[data-opt-size]")?.value || "M (70 cm)";
+      addToCart({
+        id: p.id,
+        name: p.name,
+        price: p.price,
+        type:"mirror",
+        options: { Bordure: border, Taille: size }
+      });
+    });
+
+    // filtre recherche
+    const q = document.getElementById("q");
+    const filter = document.getElementById("filterType");
+    function apply(){
+      const term = (q.value||"").toLowerCase().trim();
+      const type = filter.value;
+      document.querySelectorAll(".product").forEach(el=>{
+        const name = el.getAttribute("data-name") || "";
+        const t = el.getAttribute("data-type") || "skincare";
+        const okName = !term || name.includes(term);
+        const okType = (type==="all") || (t===type);
+        el.style.display = (okName && okType) ? "" : "none";
+      });
+    }
+    q.addEventListener("input", apply);
+    filter.addEventListener("change", apply);
+  </script>
+</body>
+</html>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prix — VIMS</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html"><div class="logo"></div><div><strong>VIMS</strong><small>vims.shop • SkinScan Mirror</small></div></a>
+      <nav class="navlinks">
+        <a href="index.html">Accueil</a>
+        <a href="produits.html">Produit</a>
+        <a href="prix.html">Prix</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="chips">
+        <a class="chip" href="favoris.html">Favoris <span class="badge" data-fav-badge>0</span></a>
+        <a class="chip" href="panier.html">Panier <span class="badge" data-cart-badge>0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h2>Prix & Packs</h2>
+      <p class="sub">Positionnement luxe, épuré — avec recommandations skincare intégrées.</p>
+
+      <div class="products">
+        <article class="product">
+          <div class="head">
+            <div>
+              <h3 class="title">Pack Essentiel</h3>
+              <p class="meta">Miroir SkinScan + 2 soins signature (routine de base).</p>
+            </div>
+            <div class="tag">Starter</div>
+          </div>
+          <div class="body">
+            <div class="kv">
+              <div class="box"><b>Inclus</b><span>Miroir + Cleanser + SPF</span></div>
+              <div class="box"><b>Bordure</b><span>Blanc / Argenté</span></div>
+            </div>
+          </div>
+          <div class="foot">
+            <div class="price">1 340 €</div>
+            <button class="btn small primary" data-add-cart='{"id":"pack-essentiel","name":"VIMS Pack Essentiel","price":1340,"type":"bundle","note":"Miroir + 2 soins"}'>Ajouter</button>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="head">
+            <div>
+              <h3 class="title">Pack Signature Doré</h3>
+              <p class="meta">Le look Upper East Side : bordure dorée + routine complète.</p>
+            </div>
+            <div class="tag">Luxe</div>
+          </div>
+          <div class="body">
+            <div class="kv">
+              <div class="box"><b>Inclus</b><span>Miroir + 4 soins</span></div>
+              <div class="box"><b>Fini</b><span>Doré • Chic</span></div>
+            </div>
+          </div>
+          <div class="foot">
+            <div class="price">1 590 €</div>
+            <button class="btn small primary" data-add-cart='{"id":"pack-signature","name":"VIMS Pack Signature Doré","price":1590,"type":"bundle","note":"Miroir + 4 soins"}'>Ajouter</button>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="head">
+            <div>
+              <h3 class="title">Membership VIMS</h3>
+              <p class="meta">Routines mises à jour + recommandations saisonnières.</p>
+            </div>
+            <div class="tag">Abonnement</div>
+          </div>
+          <div class="body">
+            <div class="kv">
+              <div class="box"><b>Analyse</b><span>Illimitée</span></div>
+              <div class="box"><b>Support</b><span>VIP</span></div>
+            </div>
+          </div>
+          <div class="foot">
+            <div class="price">19 € / mois</div>
+            <button class="btn small primary" data-add-cart='{"id":"membership","name":"VIMS Membership","price":19,"type":"subscription","note":"Renouvellement mensuel (démo)"}'>Ajouter</button>
+          </div>
+        </article>
+      </div>
+
+      <div class="hr"></div>
+      <div class="notice"><b>Note maquette :</b> aucun paiement réel. Ces prix servent à la visualisation.</div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container"><div class="hr"></div><div class="row">
+      <div><div style="font-weight:900; letter-spacing:1px">VIMS</div><div class="fine">Skincare luxe • Miroirs intelligents</div></div>
+      <div class="fine">vims.shop — Maquette</div>
+    </div></div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ — VIMS</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html"><div class="logo"></div><div><strong>VIMS</strong><small>vims.shop • SkinScan Mirror</small></div></a>
+      <nav class="navlinks">
+        <a href="index.html">Accueil</a>
+        <a href="produits.html">Produit</a>
+        <a href="prix.html">Prix</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="chips">
+        <a class="chip" href="favoris.html">Favoris <span class="badge" data-fav-badge>0</span></a>
+        <a class="chip" href="panier.html">Panier <span class="badge" data-cart-badge>0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h2>FAQ</h2>
+
+      <div class="card pad">
+        <div class="feature">
+          <h3>Comment fonctionne l’analyse de peau ?</h3>
+          <p>Le miroir VIMS combine lecture caméra et capteurs (selon modèle) pour estimer hydratation, zones de brillance, texture et besoins. (Ici : simulation.)</p>
+        </div>
+        <div class="feature">
+          <h3>Les produits recommandés sont-ils uniquement VIMS ?</h3>
+          <p>La routine est d’abord construite autour des soins VIMS disponibles sur vims.shop. Des recommandations “compatibles” peuvent exister selon l’édition.</p>
+        </div>
+        <div class="feature">
+          <h3>Peut-on choisir la bordure / taille ?</h3>
+          <p>Oui : blanc, doré, argenté… Tailles S/M/L selon le format (ovale, arche, rectangle).</p>
+        </div>
+        <div class="feature">
+          <h3>Et la confidentialité ?</h3>
+          <p>Sur un vrai site : options de contrôle, suppression et stockage. Sur cette maquette : rien n’est envoyé, tout reste local.</p>
+        </div>
+        <div class="feature">
+          <h3>Le panier / favoris fonctionnent vraiment ?</h3>
+          <p>Oui, mais uniquement dans ton navigateur via localStorage (démo). Ouvre “Panier” ou “Favoris”.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container"><div class="hr"></div><div class="row">
+      <div><div style="font-weight:900; letter-spacing:1px">VIMS</div><div class="fine">Skincare luxe • Miroirs intelligents</div></div>
+      <div class="fine">Maquette • vims.shop</div>
+    </div></div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — VIMS</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html"><div class="logo"></div><div><strong>VIMS</strong><small>vims.shop • SkinScan Mirror</small></div></a>
+      <nav class="navlinks">
+        <a href="index.html">Accueil</a>
+        <a href="produits.html">Produit</a>
+        <a href="prix.html">Prix</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="chips">
+        <a class="chip" href="favoris.html">Favoris <span class="badge" data-fav-badge>0</span></a>
+        <a class="chip" href="panier.html">Panier <span class="badge" data-cart-badge>0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="card pad">
+        <div class="formgrid">
+          <div>
+            <label>Nom</label>
+            <input class="input" placeholder="Votre nom" />
+          </div>
+          <div>
+            <label>Email</label>
+            <input class="input" placeholder="vous@exemple.com" />
+          </div>
+        </div>
+
+        <div style="margin-top:12px">
+          <label>Message</label>
+          <textarea class="input" placeholder="Dites-nous ce que vous cherchez : miroir, bordure dorée, routine…"></textarea>
+          <div class="help">Démo : l’envoi est simulé.</div>
+        </div>
+
+        <div class="actions">
+          <button class="btn primary" id="sendBtn">Envoyer</button>
+          <a class="btn" href="faq.html">Voir la FAQ</a>
+        </div>
+
+        <div class="hr"></div>
+        <div class="notice">
+          <b>Ambiance VIMS</b> : beige/marron/noir, détails dorés, touche léopard — luxe discret.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container"><div class="hr"></div><div class="row">
+      <div><div style="font-weight:900; letter-spacing:1px">VIMS</div><div class="fine">vims.shop — Maquette</div></div>
+      <div class="fine">Support • Livraison • Partenariats</div>
+    </div></div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+  <script>
+    document.getElementById("sendBtn").addEventListener("click", ()=>{
+      toast("Message envoyé (démo)", "Nous revenons vers vous sous 24–48h.");
+    });
+  </script>
+</body>
+</html>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panier — VIMS</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html"><div class="logo"></div><div><strong>VIMS</strong><small>vims.shop • SkinScan Mirror</small></div></a>
+      <nav class="navlinks">
+        <a href="index.html">Accueil</a>
+        <a href="produits.html">Produit</a>
+        <a href="prix.html">Prix</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="chips">
+        <a class="chip" href="favoris.html">Favoris <span class="badge" data-fav-badge>0</span></a>
+        <a class="chip" href="panier.html">Panier <span class="badge" data-cart-badge>0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h2>Panier</h2>
+
+      <div id="cartEmpty" class="notice hidden">
+        Votre panier est vide. <a href="produits.html"><b>Découvrir les produits</b></a>.
+      </div>
+
+      <table class="table" style="margin-top:12px">
+        <thead>
+          <tr>
+            <th>Produit</th>
+            <th>Prix</th>
+            <th>Qté</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="cartBody"></tbody>
+      </table>
+
+      <div class="card pad" style="margin-top:14px">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
+          <div>
+            <div class="smallmuted">Total</div>
+            <div style="font-size:24px; font-weight:900" id="cartTotal">0 €</div>
+            <div class="help">Démo : aucun paiement réel.</div>
+          </div>
+          <div class="actions" style="margin:0">
+            <button class="btn ghost" id="clearCartBtn">Vider</button>
+            <button class="btn primary" id="checkoutBtn">Passer au paiement</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container"><div class="hr"></div><div class="row">
+      <div><div style="font-weight:900; letter-spacing:1px">VIMS</div><div class="fine">Panier • Maquette</div></div>
+      <div class="fine">Sécurisé (démo)</div>
+    </div></div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Favoris — VIMS</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html"><div class="logo"></div><div><strong>VIMS</strong><small>vims.shop • SkinScan Mirror</small></div></a>
+      <nav class="navlinks">
+        <a href="index.html">Accueil</a>
+        <a href="produits.html">Produit</a>
+        <a href="prix.html">Prix</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="chips">
+        <a class="chip" href="favoris.html">Favoris <span class="badge" data-fav-badge>0</span></a>
+        <a class="chip" href="panier.html">Panier <span class="badge" data-cart-badge>0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h2>Produits favoris</h2>
+      <div id="favEmpty" class="notice hidden">Aucun favori pour l’instant. <a href="produits.html"><b>Parcourir les produits</b></a>.</div>
+      <div class="grid3" id="favWrap" style="margin-top:12px"></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container"><div class="hr"></div><div class="row">
+      <div><div style="font-weight:900; letter-spacing:1px">VIMS</div><div class="fine">Favoris • Maquette</div></div>
+      <div class="fine">vims.shop</div>
+    </div></div>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
