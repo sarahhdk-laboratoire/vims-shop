@@ -1,5 +1,47 @@
-:root{
-  --bg: #f5f0e8;
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VIMS — SkinScan Mirror</title>
+  <style>
+    :root{.container{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.hero{
+  background:var(--paper);
+  padding:60px;
+  border-radius:24px;
+  text-align:center;
+  box-shadow:var(--shadow);
+  max-width:520px;
+}
+
+.hero h1{
+  letter-spacing:6px;
+  font-size:48px;
+  margin-bottom:16px;
+}
+
+.subtitle{
+  color:var(--muted);
+  font-size:18px;
+  margin-bottom:32px;
+}
+
+.cta{
+  background:linear-gradient(135deg,var(--gold),#8a6a3f);
+  color:white;
+  border:none;
+  padding:14px 28px;
+  border-radius:999px;
+  font-size:16px;
+  cursor:pointer;
+}  --bg: #f5f0e8;
   --paper: #fffaf2;
   --ink: #0f0f10;
   --muted: #5d564f;
